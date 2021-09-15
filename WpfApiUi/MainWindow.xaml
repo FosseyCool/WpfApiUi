@@ -1,0 +1,44 @@
+﻿<Window x:Class="WpfApiUi.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApiUi"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="1050">
+    <Grid>
+        <Label x:Name="lblSenderCity" Content="Город отправителя :" HorizontalAlignment="Left" Margin="29,27,0,0" VerticalAlignment="Top" Height="27" Width="169"/>
+        <Label x:Name="lblSenderAddress" Content="Адрес отправителя :"  HorizontalAlignment="Left" Margin="29,70,0,0" VerticalAlignment="Top" Width="136"/>
+        <Label x:Name="lblRecipientCity" Content="Город получателя :" HorizontalAlignment="Left" Margin="29,113,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblRecipientAddress" Content="Адрес получателя :" HorizontalAlignment="Left" Margin="29,155,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblWeight"  Content="Вес груза :" HorizontalAlignment="Left" Margin="29,0,0,0" VerticalAlignment="Center"/>
+        <TextBox x:Name="txtSenderCity" HorizontalAlignment="Left" Margin="198,36,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtSenderAddress" HorizontalAlignment="Left" Margin="198,78,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtRecipientCity" HorizontalAlignment="Left" Margin="198,121,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtRecipientAddress" HorizontalAlignment="Left" Margin="198,163,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtWeight" HorizontalAlignment="Left" Margin="198,210,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Button  x:Name="btnSaveOrder" Content="Сохранить заказ" HorizontalAlignment="Left" Margin="86,354,0,33" Width="161" Click="btnSaveOrder_Click"/>
+        <Button x:Name="btnLoadOrders" Content="Загрузить все заказы" HorizontalAlignment="Left" Margin="340,87,0,0" VerticalAlignment="Top" Width="687" Click="btnLoadOrders_Click"/>
+        <Label x:Name="lblMessage"  Content="" HorizontalAlignment="Center" Margin="0,181,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblData" Content="Дата :" HorizontalAlignment="Left" Margin="29,247,0,0" VerticalAlignment="Top" Width="43"/>
+        <TextBox x:Name="txtData" HorizontalAlignment="Left" Margin="198,265,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <DataGrid x:Name="dgOrders" Margin="340,113,10,13"
+            xmlns:my="http://schemas.microsoft.com/wpf/2008/toolkit"
+            CanUserAddRows="True"
+            ItemsSource="{Binding}"
+            AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Заказ Id" Binding="{Binding Path=Id}"/>
+                <DataGridTextColumn Header="Город отправителя" Binding="{Binding Path=SenderCity}"/>
+                <DataGridTextColumn Header="Адрес отправителя" Binding="{Binding Path=SenderAddress}"/>
+                <DataGridTextColumn Header="Город получателя" Binding="{Binding Path=RecipientCity}"/>
+                <DataGridTextColumn Header="Адрес получателя" Binding="{Binding Path=RecipientAddress}"/>
+                <DataGridTextColumn Header="Вес" Binding="{Binding Path=Weight}"/>
+                <DataGridTextColumn Header="Дата" Binding="{Binding Path=Data}"/>
+                <DataGridTextColumn/>
+            </DataGrid.Columns>
+        </DataGrid>
+       
+
+    </Grid>
+</Window>
